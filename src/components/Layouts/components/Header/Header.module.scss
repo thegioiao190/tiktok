@@ -1,4 +1,11 @@
 .wrapper {
+    --search-border-radius: 92px;
+    --search-height: 46px;
+    --search-top-space: 9px;
+    --search-border-color: rgb(201, 201, 201);
+    --search-background-color: rgba(22, 24, 35, 0.06);
+    --search-button-right: 52px;
+
     width: 100%;
     height: var(--default-layout-header-height, 60px);
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
@@ -6,6 +13,72 @@
     justify-content: center;
 }
 .inner {
+    display: flex;
+    align-items: center;
     height: 100%;
     width: var(--default-layout-width);
+    justify-content: space-between;
+}
+.search {
+    position: relative;
+    padding: 0 0 0 16px;
+    width: 361px;
+    height: var(--search-height);
+    background-color: var(--search-background-color);
+    border-radius: var(--search-border-radius);
+    display: flex;
+    border: 1.5px solid transparent;
+
+    input {
+        flex: 1;
+        height: 100%;
+        font-size: 1.6rem;
+        background-color: transparent;
+        caret-color: var(--primary);
+    }
+
+    input:not(:placeholder-shown) {
+        & ~ .search-btn {
+            color: rgba(22, 24, 35, 0.75);
+        }
+    }
+
+    &:focus-within {
+        border-color: var(--search-border-color);
+    }
+
+    &::after {
+        position: absolute;
+        content: '';
+        height: calc(var(--search-height) - var(--search-top-space) * 2);
+        right: var(--search-button-right);
+        top: 9px;
+        width: 1px;
+        background-color: rgba(22, 24, 35, 0.12);
+    }
+}
+
+.search-btn {
+    width: var(--search-button-right);
+    height: 100%;
+    background-color: transparent;
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+    font-size: 1.8rem;
+    color: rgba(22, 24, 35, 0.34);
+    &:hover {
+        cursor: pointer;
+        background: rgba(22, 24, 35, 0.03);
+    }
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+.clear,
+.loading {
+    color: rgba(22, 24, 35, 0.34);
+    position: absolute;
+    right: calc(var(--search-button-right) + var(--search-height) / 3);
+    top: 50%;
+    transform: translateY(-50%);
 }
