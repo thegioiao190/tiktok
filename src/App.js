@@ -1,10 +1,28 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { publicRoutes } from '~/routes/index.js';
+import { DefaultLayout } from '~/components/Layouts';
 function App() {
     return (
-        <div className="App">
-            <header className="App-header">
-                <h1>Hello React TikTok</h1>
-            </header>
-        </div>
+        <Router>
+            <div className="App">
+                <Routes>
+                    {publicRoutes.map((route, index) => {
+                        const Layout = route.layout || DefaultLayout;
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={
+                                    <Layout>
+                                        <route.component />
+                                    </Layout>
+                                }
+                            />
+                        );
+                    })}
+                </Routes>
+            </div>
+        </Router>
     );
 }
 
