@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    padding: 9px 16px;
+    align-items: center;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+}
+.info {
+}
+.name {
+    color: #161823;
+    font-size: 1.6rem;
+    line-height: 22px;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.username {
+    color: #16182380;
+    font-size: 1.4rem;
+    line-height: 20px;
+    color: rgba(22, 24, 35, 0.5);
+    font-weight: 300;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.check-icon {
+    margin-left: 6px;
+    color: rgb(32, 213, 236);
+}
