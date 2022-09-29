@@ -8,6 +8,7 @@
     font-weight: 700;
     font-size: 1.6rem;
     user-select: none; // khong cho select chu
+    background-color: transparent;
     cursor: pointer;
 
     // De border o day de sau nay khong chenh lech kich thuoc
@@ -56,7 +57,6 @@
 
 .simple {
     border-radius: 2px;
-    background-color: transparent;
     border-color: rgba(22, 24, 35, 0.12);
     color: rgba(22, 24, 35, 1);
     &:hover {
@@ -71,8 +71,8 @@
     }
 }
 
-.leftIcon + .title,
-.title + .rightIcon {
+.icon + .title,
+.title + .icon {
     margin-left: 8px;
 }
 
@@ -85,4 +85,10 @@
 .large {
     min-width: 148px;
     padding: 14px 16px;
+}
+
+.icon {
+    display: inline-block; //phai co cai nay moi set width cho icon duoc
+    width: 24px;
+    text-align: center;
 }

@@ -1,4 +1,6 @@
+import Tippy from '@tippyjs/react';
+
 function Home() {
-    return <div>HOME</div>;
+    return <div>home</div>;
 }
 export default Home;
