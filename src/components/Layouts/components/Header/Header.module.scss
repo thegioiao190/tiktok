@@ -17,6 +17,7 @@
     align-items: center;
     height: 100%;
     width: var(--default-layout-width);
+    padding: var(--default-layout-width-space);
     justify-content: space-between;
 }
 .search,
