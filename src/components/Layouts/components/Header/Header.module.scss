@@ -102,6 +102,10 @@
     padding: 8px 8px;
     font-size: 2.3rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 40px;
 }
 
 .more-btn {
@@ -117,4 +121,5 @@
     width: 32px;
     object-fit: cover;
     border-radius: 50%;
+    margin-left: 10px;
 }

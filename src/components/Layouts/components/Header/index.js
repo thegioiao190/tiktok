@@ -8,7 +8,6 @@ import {
     faA,
     faQuestion,
     faKeyboard,
-    faCloudArrowUp,
     faCoins,
     faGear,
     faUser,
@@ -25,6 +24,9 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Menu, Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
+import { InboxIcon, MessageIcon } from '~/components/Icons';
+import Image from '~/components/Image';
+import Badge from '~/components/Badge';
 
 const cx = classNames.bind(styles);
 
@@ -123,26 +125,34 @@ function Header() {
                 </Headless>
 
                 <div className={cx('action')}>
+                    <Button simple leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                        Upload
+                    </Button>
                     {currentUser ? (
                         <>
-                            <Tippy delay={200} content="Upload Video" placement="bottom">
+                            <Tippy delay={200} content="Tin Nhan" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudArrowUp} />
+                                    <MessageIcon />
+
+                                    <Badge>4</Badge>
+                                </button>
+                            </Tippy>
+                            <Tippy delay={200} content="Hop Thu" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon />
+                                    <Badge>15</Badge>
                                 </button>
                             </Tippy>
                         </>
                     ) : (
                         <>
-                            <Button simple leftIcon={<FontAwesomeIcon icon={faPlus} />}>
-                                Upload
-                            </Button>
                             <Button primary>Log in</Button>
                         </>
                     )}
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onHandleMenuClick={onHandleMenuClick}>
                         {currentUser ? (
-                            <img src="https://picsum.photos/200" alt="Nguyen Van A" className={cx('user-avatar')} />
+                            <Image src="https://picsum.photos/200" alt="Nguyen Van A" className={cx('user-avatar')} />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
