@@ -9,7 +9,7 @@
     --default-layout-width: 1150px;
     --default-layout-width-space: 0 24px;
     --black: black;
-    --text-color: #333;
+    --text-color: rgb(22, 24, 35);
 }
 * {
     margin: 0;
@@ -31,8 +31,29 @@ input,
 [tabindex] {
     outline: none;
     border: none;
+    background-color: transparent;
 }
 a[href] {
     color: var(--text-color);
     text-decoration: none;
+}
+body {
+    .tippy-box {
+        background-color: rgba(84, 84, 84, 0.92);
+        border-radius: 8px;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        font-weight: 600;
+    }
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+    .tippy-content {
+        height: 3.8rem;
+        display: flex;
+        align-items: center;
+    }
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+        top: -8px;
+    }
 }

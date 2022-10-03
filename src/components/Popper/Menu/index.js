@@ -33,9 +33,13 @@ function Menu({ children, items, onHandleMenuClick = () => {} }) {
     };
     return (
         <Tippy
+            offset={[12, 8]}
             delay={[0, 700]}
             placement="bottom-end"
             interactive={true}
+            onHide={() => {
+                setHistory((prev) => [prev[0]]);
+            }}
             render={(attrs) => (
                 <div className={cx('menu-items')} tabIndex="-1" {...attrs}>
                     <PopperWrapper className={cx('menu-popper')}>
