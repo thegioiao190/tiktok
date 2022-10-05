@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
@@ -15,4 +16,8 @@ function Header({ onClickBack, title }) {
         </div>
     );
 }
+Header.propTypes = {
+    onClickBack: PropTypes.func.isRequired,
+    title: PropTypes.string,
+};
 export default Header;

@@ -25,9 +25,9 @@ function AccountItem({ name, user, avatar }) {
 }
 
 AccountItem.propTypes = {
-    name: PropTypes.string,
-    user: PropTypes.string,
-    avatar: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    user: PropTypes.string.isRequired,
+    avatar: PropTypes.string.isRequired,
 };
 
 export default AccountItem;
