@@ -44,7 +44,7 @@ function Search() {
     };
     const onInputChange = (e) => {
         const text = e.target.value;
-        if (text != ' ') {
+        if (text[0] != ' ') {
             setSearchValue(text);
         }
     };
@@ -86,7 +86,7 @@ function Search() {
                     </button>
                 )}
                 {showLoading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     <SearchIcon />
                 </button>
             </div>

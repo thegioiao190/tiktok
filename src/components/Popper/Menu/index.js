@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(style);
 
-function Menu({ children, items, onHandleMenuClick = () => {} }) {
+function Menu({ hideOnClick = false, children, items, onHandleMenuClick = () => {} }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -33,6 +33,7 @@ function Menu({ children, items, onHandleMenuClick = () => {} }) {
     };
     return (
         <Tippy
+            hideOnClick={hideOnClick}
             offset={[12, 8]}
             delay={[0, 700]}
             placement="bottom-end"

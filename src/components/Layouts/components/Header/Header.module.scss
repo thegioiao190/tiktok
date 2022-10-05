@@ -20,6 +20,9 @@
     padding: var(--default-layout-width-space);
     justify-content: space-between;
 }
+.logo-link {
+    display: flex;
+}
 
 //Action
 .action {
