@@ -44,7 +44,7 @@ function Search() {
     };
     const onInputChange = (e) => {
         const text = e.target.value;
-        if (text[0] != ' ') {
+        if (text[0] !== ' ') {
             setSearchValue(text);
         }
     };
