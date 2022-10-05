@@ -6,6 +6,12 @@
 }
 .menu-popper {
     padding-bottom: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-body {
+    overflow-y: auto; //de cuon len xuong duoc- thanh cuon nam chung content
 }
 
 .menu-item {
@@ -24,6 +30,7 @@
 
 //file header
 .header {
+    flex-shrink: 0;
     height: 50px;
     position: relative;
     margin-top: -8px;
