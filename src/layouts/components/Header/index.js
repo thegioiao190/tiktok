@@ -116,7 +116,9 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <Button primary>Log in</Button>
+                            <Button to="/" primary>
+                                Log in
+                            </Button>
                         </>
                     )}
 

@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 
 import style from './Search.module.scss';
-import AccountItem from '~/components/AccountItem';
 import Headless from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
 import * as searchServices from '~/services/searchService';
+import SearchResult from './SearchResult';
 
 const cx = classNames.bind(style);
 
@@ -19,21 +19,21 @@ function Search() {
     const [showResult, setShowResult] = useState(true);
     const [showLoading, setShowLoading] = useState(false);
 
-    const debounce = useDebounce(searchValue, 500);
+    const debounceValue = useDebounce(searchValue, 500);
     const inputRef = useRef();
     useEffect(() => {
-        if (!debounce.trim()) {
+        if (!debounceValue.trim()) {
             setSearchResult([]);
             return;
         }
         setShowLoading(true);
         const fetchAPI = async () => {
-            const data = await searchServices.search(debounce);
+            const data = await searchServices.search(debounceValue);
             setSearchResult(data);
             setShowLoading(false);
         };
         fetchAPI();
-    }, [debounce]);
+    }, [debounceValue]);
     const handleClear = () => {
         setSearchValue('');
         setSearchResult([]);
@@ -48,6 +48,15 @@ function Search() {
             setSearchValue(text);
         }
     };
+
+    const renderResult = (attrs) => (
+        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+            <PopperWrapper>
+                <h4 className={cx('search-title')}>accounts</h4>
+                <SearchResult searchResult={searchResult} />
+            </PopperWrapper>
+        </div>
+    );
     return (
         //Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context.
         <div>
@@ -55,23 +64,7 @@ function Search() {
                 visible={showResult && searchResult.length > 0}
                 interactive={true}
                 onClickOutside={handleHideResult}
-                render={(attrs) => (
-                    <div className={cx('search-result')} tabIndex="-1" {...attrs}>
-                        <PopperWrapper>
-                            <h4 className={cx('search-title')}>accounts</h4>
-                            {searchResult.map((item) => {
-                                return (
-                                    <AccountItem
-                                        key={item.id}
-                                        name={item.full_name}
-                                        avatar={item.avatar}
-                                        user={item.nickname}
-                                    />
-                                );
-                            })}
-                        </PopperWrapper>
-                    </div>
-                )}
+                render={renderResult}
             >
                 <div className={cx('search')}>
                     <input
