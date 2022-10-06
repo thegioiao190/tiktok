@@ -20,10 +20,10 @@ import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Menu } from '~/components/Popper';
-import { InboxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Badge from '~/components/Badge';
 import Search from '../Search';
+import Icons from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -102,14 +102,14 @@ function Header() {
                         <>
                             <Tippy delay={200} content="Tin Nhan" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <MessageIcon />
+                                    <Icons.MessageIcon />
 
                                     <Badge>4</Badge>
                                 </button>
                             </Tippy>
                             <Tippy delay={200} content="Hop Thu" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <InboxIcon />
+                                    <Icons.InboxIcon />
                                     <Badge>15</Badge>
                                 </button>
                             </Tippy>

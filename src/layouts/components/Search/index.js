@@ -6,10 +6,10 @@ import classNames from 'classnames/bind';
 import style from './Search.module.scss';
 import Headless from '@tippyjs/react/headless';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import { SearchIcon } from '~/components/Icons';
 import { useDebounce } from '~/hooks';
 import * as searchServices from '~/services/searchService';
 import SearchResult from './SearchResult';
+import Icons from '~/components/Icons';
 
 const cx = classNames.bind(style);
 
@@ -82,7 +82,7 @@ function Search() {
                     )}
                     {showLoading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
                     <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                        <SearchIcon />
+                        <Icons.SearchIcon />
                     </button>
                 </div>
             </Headless>
