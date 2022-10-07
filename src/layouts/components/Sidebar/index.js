@@ -4,6 +4,7 @@ import Menu, { MenuItem } from './Menu';
 import Icons from '~/components/Icons';
 
 import config from '~/config';
+import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 const cx = className.bind(styles);
 
@@ -30,6 +31,7 @@ function Sidebar() {
                     to={config.routes.live}
                 />
             </Menu>
+            <SuggestedAccounts title="SuggestedAccount" />
         </aside>
     );
 }
