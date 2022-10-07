@@ -10,6 +10,8 @@
     font-weight: 600;
     color: rgba(22, 24, 35, 0.75);
 }
+
+//Account Item
 .account-item {
     display: flex;
     height: 48px;
@@ -55,4 +57,59 @@
     padding: 0px 8px;
     margin-top: 8px;
     cursor: pointer;
+}
+
+//Popper
+.popper-wrapper {
+    background-color: aqua;
+    height: 171px;
+    width: 320px;
+    padding: 20px;
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 4px 16px;
+    border-radius: 8px;
+}
+.popper-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    .avatar {
+        width: 44px;
+        height: 44px;
+    }
+    .follow-btn {
+        width: 106px;
+        height: 34px;
+    }
+}
+.popper-info {
+    .username {
+        margin: 0;
+        font-size: 1.8rem;
+
+        .check {
+            padding: 0 0 0 4px;
+        }
+    }
+    .name {
+        font-size: 1.4rem;
+    }
+}
+.popper-analytics {
+    margin: 8px 0 0;
+    font-size: 17px;
+    display: flex;
+    color: var(--text-color);
+    .followers-value,
+    .like-value {
+        font-weight: 700;
+    }
+    .like-value {
+        margin-left: 12px;
+    }
+    .label {
+        color: rgb(98, 98, 98);
+        margin-left: 6px;
+    }
 }
