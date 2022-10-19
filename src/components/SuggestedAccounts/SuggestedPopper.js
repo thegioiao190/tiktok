@@ -51,8 +51,8 @@ SuggestedPopper.propTypes = {
     username: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     icon: PropTypes.node.isRequired,
-    followerValue: PropTypes.string.isRequired,
-    likeValue: PropTypes.string.isRequired,
+    followerValue: PropTypes.number.isRequired,
+    likeValue: PropTypes.number.isRequired,
 };
 
 export default SuggestedPopper;

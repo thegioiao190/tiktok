@@ -9,19 +9,19 @@ import SuggestedPopper from './SuggestedPopper';
 
 const cx = classNames.bind(style);
 
-const data = {
-    avatar: 'https://via.placeholder.com/150',
-    username: 'nguyenvana',
-    name: 'Nguyen Van A',
-    icon: <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />,
-    followerValue: '7.4M',
-    likeValue: '411.2M',
-};
-function AccountItem({}) {
+function AccountItem({ account }) {
+    const data = {
+        avatar: account.avatar,
+        username: account.nickname,
+        name: account.last_name + ' ' + account.first_name,
+        icon: account.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />,
+        followerValue: account.followers_count,
+        likeValue: account.likes_count,
+    };
     return (
         <SuggestedPopper {...data}>
             <div className={cx('account-item')}>
-                <Image className={cx('avatar')} src={data.avatar} alt="" />
+                <Image className={cx('avatar')} src={data.avatar} alt={data.name} />
                 <div className={cx('info')}>
                     <p className={cx('username')}>
                         {data.username}
@@ -34,6 +34,8 @@ function AccountItem({}) {
     );
 }
 
-AccountItem.propsTypes = {};
+AccountItem.propsTypes = {
+    account: PropTypes.object.isRequired,
+};
 
 export default AccountItem;
